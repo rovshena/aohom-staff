@@ -2,7 +2,6 @@
 
 use Core\Response;
 use Core\Session;
-use JetBrains\PhpStorm\NoReturn;
 
 function dd($value)
 {
@@ -18,12 +17,6 @@ function urlIs($value): bool
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
-function isAdminPage(): bool
-{
-    return strpos($_SERVER['REQUEST_URI'], 'admin');
-}
-
-#[NoReturn]
 function abort($code = 404): void
 {
     http_response_code($code);
@@ -49,7 +42,9 @@ function base_path($path): string
 
 function asset($path): string
 {
-    return sprintf("http://$_SERVER[HTTP_HOST]/%s", $path);
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+
+    return "{$protocol}://{$_SERVER['HTTP_HOST']}/{$path}";
 }
 
 function view($path, $attributes = [])

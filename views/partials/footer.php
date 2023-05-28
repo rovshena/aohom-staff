@@ -1,7 +1,7 @@
 <!-- Begin Plugins JS -->
 <script src="<?= asset('assets/vendor/smoothscroll-for-websites/smooth.scroll.js') ?>"></script>
 
-<?php if (auth() && isAdminPage()) : ?>
+<?php if (auth()) : ?>
     <script src="<?= asset('assets/vendor/pace-progress/pace.min.js') ?>"></script>
     <script src="<?= asset('assets/vendor/stacked-menu/js/stacked-menu.min.js') ?>"></script>
 <?php endif; ?>
@@ -29,7 +29,7 @@
     </script>
 <?php endif; ?>
 
-<?php if (auth() && isAdminPage()) : ?>
+<?php if (auth()) : ?>
     <script>
         $('body').on('click', '.delete-item', function () {
             const $form = $(this).next('form.delete-form')
