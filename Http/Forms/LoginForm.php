@@ -7,16 +7,18 @@ use Core\Validator;
 
 class LoginForm
 {
-    protected $errors = [];
+    public array $attributes;
+    protected array $errors = [];
 
-    public function __construct(public array $attributes)
+    public function __construct(array $attributes)
     {
-        if (!Validator::email($attributes['email'])) {
-            $this->errors['email'] = 'Please provide a valid email address.';
+        $this->attributes = $attributes;
+        if (!Validator::string($attributes['username'])) {
+            $this->errors['username'] = 'Ulanyjy adyny hökman girizmeli.';
         }
 
         if (!Validator::string($attributes['password'])) {
-            $this->errors['password'] = 'Please provide a valid password.';
+            $this->errors['password'] = 'Paroly hökman girizmeli.';
         }
     }
 

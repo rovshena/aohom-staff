@@ -2,6 +2,7 @@
 
 use Core\Response;
 use Core\Session;
+use JetBrains\PhpStorm\NoReturn;
 
 function dd($value)
 {
@@ -17,7 +18,13 @@ function urlIs($value): bool
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
-function abort($code = 404)
+function isAdminPage(): bool
+{
+    return str_starts_with($_SERVER['REQUEST_URI'], '/admin');
+}
+
+#[NoReturn]
+function abort($code = 404): void
 {
     http_response_code($code);
 
@@ -28,7 +35,7 @@ function abort($code = 404)
 
 function authorize($condition, $status = Response::FORBIDDEN): bool
 {
-    if (! $condition) {
+    if (!$condition) {
         abort($status);
     }
 
@@ -38,6 +45,11 @@ function authorize($condition, $status = Response::FORBIDDEN): bool
 function base_path($path): string
 {
     return BASE_PATH . $path;
+}
+
+function asset($path): string
+{
+    return sprintf("http://$_SERVER[HTTP_HOST]/%s", $path);
 }
 
 function view($path, $attributes = [])

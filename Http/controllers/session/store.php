@@ -4,18 +4,18 @@ use Core\Authenticator;
 use Http\Forms\LoginForm;
 
 $form = LoginForm::validate($attributes = [
-    'email' => $_POST['email'],
+    'username' => $_POST['username'],
     'password' => $_POST['password']
 ]);
 
 $signedIn = (new Authenticator)->attempt(
-    $attributes['email'], $attributes['password']
+    $attributes['username'], $attributes['password']
 );
 
 if (!$signedIn) {
     $form->error(
-        'email', 'No matching account found for that email address and password.'
+        'username', 'Ulanyjy adyňyz ýa-da parolyňyz nädogry.'
     )->throw();
 }
 
-redirect('/');
+redirect('/admin');

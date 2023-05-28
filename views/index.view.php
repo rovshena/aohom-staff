@@ -1,11 +1,15 @@
 <?php require('partials/head.php') ?>
-<?php require('partials/nav.php') ?>
-<?php require('partials/banner.php') ?>
 
-<main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <p>Hello, <?= $_SESSION['user']['email'] ?? 'Guest' ?>. Welcome to the home page.</p>
+<section>
+    <div class="container">
+        <div class="row align-items-center justify-content-center min-vh-100">
+            <div class="col text-center">
+                <a href="/admin" class="btn btn-primary">
+                    Ulgama gir!
+                </a>
+            </div>
+        </div>
     </div>
-</main>
+</section>
 
 <?php require('partials/footer.php') ?>
