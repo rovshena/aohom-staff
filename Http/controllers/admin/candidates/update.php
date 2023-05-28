@@ -18,10 +18,10 @@ $attributes = [
 $db = App::resolve(Database::class);
 
 $user = $db->query(
-    'insert into college (user_id, Hunar, Oglan_gyz, gelin, Welayat, etrap, tabsyran_senesi, FAA, doglan_senesi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-    array_merge([auth()['id']], array_values($attributes))
+    'update college set Hunar = ?, Oglan_gyz = ?, gelin = ?, Welayat = ?, etrap = ?, tabsyran_senesi = ?, FAA = ?, doglan_senesi = ? where id = ?',
+    array_merge(array_values($attributes), [$_POST['id']])
 );
 
-Session::flash('success', 'Dalaşgär üstünlikli goşuldy.');
+Session::flash('success', 'Dalaşgär üstünlikli üýtgedildi.');
 
 redirect('/admin/candidates');
