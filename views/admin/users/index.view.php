@@ -45,8 +45,11 @@
                                                         </td>
                                                         <td>
                                                             <?php if (!$user['is_admin']) : ?>
+                                                                <a href="/admin/user?id=<?= $user['id'] ?>"
+                                                                   class="btn btn-subtle-success btn-sm mr-2">
+                                                                    <i class="fas fa-edit fa-fw"></i>
+                                                                </a>
                                                                 <a href="javascript:void(0);"
-                                                                   data-href="##"
                                                                    class="btn btn-subtle-danger btn-sm mr-2 delete-item">
                                                                     <i class="fas fa-trash-alt fa-fw"></i>
                                                                 </a>
