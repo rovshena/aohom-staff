@@ -4,9 +4,9 @@ namespace Core;
 
 class Session
 {
-    public static function has($key)
+    public static function has($key): bool
     {
-        return (bool) static::get($key);
+        return (bool)static::get($key);
     }
 
     public static function put($key, $value)
@@ -24,9 +24,10 @@ class Session
         $_SESSION['_flash'][$key] = $value;
     }
 
+    /** @noinspection SpellCheckingInspection */
     public static function unflash()
     {
-       unset($_SESSION['_flash']);
+        unset($_SESSION['_flash']);
     }
 
     public static function flush()
@@ -34,6 +35,7 @@ class Session
         $_SESSION = [];
     }
 
+    /** @noinspection SpellCheckingInspection */
     public static function destroy()
     {
         static::flush();

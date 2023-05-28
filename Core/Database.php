@@ -3,22 +3,23 @@
 namespace Core;
 
 use PDO;
+use PDOStatement;
 
 class Database
 {
-    public $connection;
-    public $statement;
+    public PDO $connection;
+    public PDOStatement $statement;
 
     public function __construct($config, $username = 'root', $password = '')
     {
         $dsn = 'mysql:' . http_build_query($config, '', ';');
 
         $this->connection = new PDO($dsn, $username, $password, [
-           PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
     }
 
-    public function query($query, $params = [])
+    public function query($query, $params = []): Database
     {
         $this->statement = $this->connection->prepare($query);
 
@@ -41,7 +42,7 @@ class Database
     {
         $result = $this->find();
 
-        if (! $result) {
+        if (!$result) {
             abort();
         }
 

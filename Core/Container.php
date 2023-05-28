@@ -6,13 +6,16 @@ use Exception;
 
 class Container
 {
-    protected $bindings = [];
+    protected array $bindings = [];
 
     public function bind($key, $resolver)
     {
         $this->bindings[$key] = $resolver;
     }
 
+    /**
+     * @throws Exception
+     */
     public function resolve($key)
     {
         if (!array_key_exists($key, $this->bindings)) {

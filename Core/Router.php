@@ -1,16 +1,15 @@
-<?php
+<?php /** @noinspection PhpInconsistentReturnPointsInspection */
 
 namespace Core;
 
-use Core\Middleware\Authenticated;
-use Core\Middleware\Guest;
 use Core\Middleware\Middleware;
+use Exception;
 
 class Router
 {
-    protected $routes = [];
+    protected array $routes = [];
 
-    public function add($method, $uri, $controller)
+    public function add($method, $uri, $controller): Router
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -22,38 +21,41 @@ class Router
         return $this;
     }
 
-    public function get($uri, $controller)
+    public function get($uri, $controller): Router
     {
         return $this->add('GET', $uri, $controller);
     }
 
-    public function post($uri, $controller)
+    public function post($uri, $controller): Router
     {
         return $this->add('POST', $uri, $controller);
     }
 
-    public function delete($uri, $controller)
+    public function delete($uri, $controller): Router
     {
         return $this->add('DELETE', $uri, $controller);
     }
 
-    public function patch($uri, $controller)
+    public function patch($uri, $controller): Router
     {
         return $this->add('PATCH', $uri, $controller);
     }
 
-    public function put($uri, $controller)
+    public function put($uri, $controller): Router
     {
         return $this->add('PUT', $uri, $controller);
     }
 
-    public function only($key)
+    public function only($key): Router
     {
         $this->routes[array_key_last($this->routes)]['middleware'] = $key;
 
         return $this;
     }
 
+    /**
+     * @throws Exception
+     */
     public function route($uri, $method)
     {
         foreach ($this->routes as $route) {
