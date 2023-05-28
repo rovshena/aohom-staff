@@ -18,7 +18,7 @@
                         <div class="page-section">
                             <div class="section-block">
                                 <div class="card card-body">
-                                    <a href="#" class="btn btn-primary mr-auto">Ulanyjy goşmak</a>
+                                    <a href="/admin/users/create" class="btn btn-primary mr-auto">Ulanyjy goşmak</a>
                                     <hr>
                                     <div class="table-responsive">
                                         <table class="table table-hover align-middle">
@@ -44,17 +44,19 @@
                                                             <?php endif; ?>
                                                         </td>
                                                         <td>
-                                                            <a href="javascript:void(0);"
-                                                               data-href="##"
-                                                               class="btn btn-subtle-danger btn-sm mr-2 delete-item">
-                                                                <i class="fas fa-trash-alt fa-fw"></i>
-                                                            </a>
-                                                            <form action="/admin/user" class="delete-form"
-                                                                  method="POST">
-                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                <input type="hidden" name="id"
-                                                                       value="<?= $user['id'] ?>">
-                                                            </form>
+                                                            <?php if (!$user['is_admin']) : ?>
+                                                                <a href="javascript:void(0);"
+                                                                   data-href="##"
+                                                                   class="btn btn-subtle-danger btn-sm mr-2 delete-item">
+                                                                    <i class="fas fa-trash-alt fa-fw"></i>
+                                                                </a>
+                                                                <form action="/admin/user" class="delete-form"
+                                                                      method="POST">
+                                                                    <input type="hidden" name="_method" value="DELETE">
+                                                                    <input type="hidden" name="id"
+                                                                           value="<?= $user['id'] ?>">
+                                                                </form>
+                                                            <?php endif; ?>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
