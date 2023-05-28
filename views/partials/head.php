@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO -->
-    <title> AOHOM </title>
+    <title> <?= $title ?? 'AOHOM' ?> </title>
 
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#346cb0">

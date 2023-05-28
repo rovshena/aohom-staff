@@ -16,6 +16,19 @@
 <!-- End Layout JS -->
 
 <!-- Begin Page Level JS -->
+
+<?php if (\Core\Session::has('success')) : ?>
+    <script>
+        toastr.success("<?= \Core\Session::get('success') ?>");
+    </script>
+<?php endif; ?>
+
+<?php if (\Core\Session::has('error')) : ?>
+    <script>
+        toastr.error("<?= \Core\Session::get('error') ?>");
+    </script>
+<?php endif; ?>
+
 <script src="<?= asset('assets/js/layout.js') ?>"></script>
 <!-- End Page Level JS -->
 

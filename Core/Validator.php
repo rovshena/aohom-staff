@@ -15,4 +15,9 @@ class Validator
     {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
+
+    public static function same($field, $other): bool
+    {
+        return $field === $other;
+    }
 }

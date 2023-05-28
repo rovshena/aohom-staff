@@ -1,4 +1,4 @@
-<?php require('partials/head.php') ?>
+<?php require base_path('views/partials/head.php') ?>
 
 <section>
     <div class="container">
@@ -12,4 +12,4 @@
     </div>
 </section>
 
-<?php require('partials/footer.php') ?>
+<?php require base_path('views/partials/footer.php') ?>

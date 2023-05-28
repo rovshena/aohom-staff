@@ -20,7 +20,7 @@ function urlIs($value): bool
 
 function isAdminPage(): bool
 {
-    return str_starts_with($_SERVER['REQUEST_URI'], '/admin');
+    return strpos($_SERVER['REQUEST_URI'], 'admin');
 }
 
 #[NoReturn]

@@ -1,4 +1,4 @@
-<?php require('partials/head.php') ?>
+<?php require base_path('views/partials/head.php') ?>
 
 <main class="app empty-state empty-state-fullpage">
     <div class="col-12 empty-state-container">
@@ -37,4 +37,4 @@
     });
 </script>
 
-<?php require('partials/footer.php') ?>
+<?php require base_path('views/partials/footer.php') ?>

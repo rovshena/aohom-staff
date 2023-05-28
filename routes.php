@@ -7,3 +7,5 @@ $router->post('/session', 'session/store.php')->only('guest');
 $router->delete('/session', 'session/destroy.php')->only('auth');
 
 $router->get('/admin', 'admin/index.php')->only('auth');
+$router->get('/admin/change-password', 'admin/change-password/show.php')->only('auth');
+$router->put('/admin/change-password', 'admin/change-password/update.php')->only('auth');
