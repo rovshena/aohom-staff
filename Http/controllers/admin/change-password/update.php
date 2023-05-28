@@ -13,8 +13,8 @@ $form = ChangePasswordForm::validate($attributes = [
 
 $db = App::resolve(Database::class);
 
-$user = $db->query('select * from users where username = :username', [
-    'username' => auth()['username']
+$user = $db->query('select * from users where id = :id', [
+    'id' => auth()['id']
 ])->findOrFail();
 
 if (!password_verify($attributes['current_password'], $user['password'])) {
@@ -23,8 +23,8 @@ if (!password_verify($attributes['current_password'], $user['password'])) {
     )->throw();
 }
 
-$db->query('UPDATE users SET password = :password WHERE username = :username', [
-    'username' => $user['username'],
+$db->query('UPDATE users SET password = :password WHERE id = :id', [
+    'id' => $user['id'],
     'password' => password_hash($attributes['password'], PASSWORD_BCRYPT)
 ]);
 

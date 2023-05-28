@@ -49,15 +49,15 @@
                                                                    class="btn btn-subtle-success btn-sm mr-2">
                                                                     <i class="fas fa-edit fa-fw"></i>
                                                                 </a>
-                                                                <a href="javascript:void(0);"
-                                                                   class="btn btn-subtle-danger btn-sm mr-2 delete-item">
-                                                                    <i class="fas fa-trash-alt fa-fw"></i>
-                                                                </a>
-                                                                <form action="/admin/user" class="delete-form"
+                                                                <form action="/admin/user" class="d-inline-flex"
                                                                       method="POST">
                                                                     <input type="hidden" name="_method" value="DELETE">
                                                                     <input type="hidden" name="id"
                                                                            value="<?= $user['id'] ?>">
+                                                                    <button type="button"
+                                                                       class="btn btn-subtle-danger btn-sm mr-2 delete-item">
+                                                                        <i class="fas fa-trash-alt fa-fw"></i>
+                                                                    </button>
                                                                 </form>
                                                             <?php endif; ?>
                                                         </td>

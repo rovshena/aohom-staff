@@ -59,6 +59,6 @@
 </head>
 <body>
 
-<div class="preloader">
-    <img src="<?= asset('assets/images/preloaders/miniballs.svg') ?>" alt="">
-</div>
+<!--<div class="preloader">-->
+<!--    <img src="--><?php //= asset('assets/images/preloaders/miniballs.svg') ?><!--" alt="">-->
+<!--</div>-->

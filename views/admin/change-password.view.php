@@ -24,42 +24,42 @@
                                         <input type="hidden" name="_method" value="PUT"/>
                                         <div class="form-group">
                                             <label for="current_password">
-                                                Häzirki parol <abbr
-                                                    title="Hökman doldurmaly">*</abbr>
+                                                Häzirki parol
+                                                <abbr title="Hökman doldurmaly">*</abbr>
                                             </label>
                                             <input type="password"
                                                    class="form-control <?= isset($errors['current_password']) ? 'is-invalid' : '' ?>"
                                                    id="current_password" name="current_password" required autofocus>
                                             <?php if (isset($errors['current_password'])) : ?>
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong><?= $errors['current_password'] ?></strong>
                                             </span>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">
-                                                Täze parol <abbr
-                                                    title="Hökman doldurmaly">*</abbr>
+                                                Täze parol
+                                                <abbr title="Hökman doldurmaly">*</abbr>
                                             </label>
                                             <input type="password"
                                                    class="form-control <?= isset($errors['password']) ? 'is-invalid' : '' ?>"
                                                    id="password" name="password" required>
                                             <?php if (isset($errors['password'])) : ?>
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong><?= $errors['password'] ?></strong>
                                             </span>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label for="password-confirm">
-                                                Paroly gaýtala <abbr
-                                                    title="Hökman doldurmaly">*</abbr>
+                                                Paroly gaýtala
+                                                <abbr title="Hökman doldurmaly">*</abbr>
                                             </label>
                                             <input type="password"
                                                    class="form-control <?= isset($errors['password']) ? 'is-invalid' : '' ?>"
                                                    id="password-confirm" name="password_confirmation" required>
                                             <?php if (isset($errors['password'])) : ?>
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong><?= $errors['password'] ?></strong>
                                             </span>
                                             <?php endif; ?>

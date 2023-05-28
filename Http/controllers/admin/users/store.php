@@ -20,7 +20,7 @@ $user = $db->query('select * from users where username = :username', [
 
 if ($user) {
     $form->error(
-        'username', 'Ulanyjy ady öň goşulan.'
+        'username', 'Ulanyjy öň hasaba alynan.'
     )->throw();
 }
 

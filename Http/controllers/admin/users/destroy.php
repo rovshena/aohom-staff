@@ -16,6 +16,7 @@ if ($user['username'] === auth()['username']) {
     $db->query('delete from users where id = :id', [
         'id' => $_POST['id']
     ]);
+    Session::flash('success', 'Ulanyjy üstünlikli pozuldy!');
 }
 
 redirect('/admin/users');

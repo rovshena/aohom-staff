@@ -14,22 +14,15 @@ $form = UpdateUserForm::validate($attributes = [
 
 $db = App::resolve(Database::class);
 
-$user = $db->query('select * from users where username = :username', [
-    'username' => $attributes['username']
+$user = $db->query('select * from users where username = :username and id <> :id', [
+    'username' => $attributes['username'],
+    'id' => $_POST['id']
 ])->find();
 
 if ($user) {
-    if ($user['username'] === 'admin') {
-        $form->error(
-            'username', 'Administratoryň maglumatyny üýtgetmek bolmaýar!'
-        )->throw();
-    }
-
-    if ($user['id'] != $_POST['id']) {
-        $form->error(
-            'username', 'Ulanyjy ady öň goşulan.'
-        )->throw();
-    }
+    $form->error(
+        'username', 'Ulanyjy öň hasaba alynan.'
+    )->throw();
 }
 
 $values = [
@@ -41,13 +34,13 @@ if (!empty($attributes['password'])) {
     $values['password'] = password_hash($attributes['password'], PASSWORD_BCRYPT);
 }
 
-$query = '';
+$query = [];
 foreach ($values as $key => $value) {
-    $query .= "{$key} = :$key,";
+    $query[] = "{$key} = :$key";
 }
-$query = rtrim($query, ',');
+$query = implode(', ', $query);
 
-$values['id'] = $user['id'];
+$values['id'] = $_POST['id'];
 
 $db->query("update users set $query where id = :id", $values);
 

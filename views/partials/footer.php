@@ -32,7 +32,7 @@
 <?php if (auth()) : ?>
     <script>
         $('body').on('click', '.delete-item', function () {
-            const $form = $(this).next('form.delete-form')
+            const $form = $(this).parent('form')
             swal.fire({
                 title: "Pozmak isleýärsiňizmi?",
                 text: "Saýlan maglumatyňyzy hakykatdan hem pozmak isleýärsiňizmi?",
@@ -44,7 +44,7 @@
             }).then((result) => {
                 if (result.value) {
                     $form.submit()
-                    $('.preloader').show()
+                    // $('.preloader').show()
                 }
             });
         });

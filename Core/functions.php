@@ -51,6 +51,8 @@ function view($path, $attributes = [])
 {
     extract($attributes);
 
+    $errors = Session::get('errors', []);
+
     require base_path('views/' . $path);
 }
 

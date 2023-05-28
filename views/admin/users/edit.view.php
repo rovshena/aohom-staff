@@ -18,7 +18,7 @@
                         <div class="page-section">
                             <div class="section-block">
                                 <div class="card card-body">
-                                    <form method="post" action="/admin/user"
+                                    <form method="post" action="/admin/user" autocomplete="off"
                                           onsubmit="disableSubmitButton();">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="id" value="<?= $user['id'] ?>">
@@ -30,7 +30,7 @@
                                                    class="form-control <?= isset($errors['username']) ? 'is-invalid' : '' ?>"
                                                    id="username" value="<?= old('username', $user['username']) ?>"
                                                    name="username" required
-                                                   autofocus>
+                                                   autofocus autocomplete="off">
                                             <?php if (isset($errors['username'])) : ?>
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong><?= $errors['username'] ?></strong>

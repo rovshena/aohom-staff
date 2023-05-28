@@ -18,7 +18,7 @@
                         <div class="page-section">
                             <div class="section-block">
                                 <div class="card card-body">
-                                    <form method="post" action="/admin/users"
+                                    <form method="post" action="/admin/users" autocomplete="off"
                                           onsubmit="disableSubmitButton();">
                                         <div class="form-group">
                                             <label for="username">
@@ -27,7 +27,7 @@
                                             <input type="text"
                                                    class="form-control <?= isset($errors['username']) ? 'is-invalid' : '' ?>"
                                                    id="username" value="<?= old('username') ?>" name="username" required
-                                                   autofocus>
+                                                   autofocus autocomplete="off">
                                             <?php if (isset($errors['username'])) : ?>
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong><?= $errors['username'] ?></strong>

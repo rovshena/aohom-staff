@@ -16,7 +16,7 @@
                     Ulanyjy ady <abbr title="Hökman doldurmaly">*</abbr>
                 </label>
                 <?php if (isset($errors['username'])) : ?>
-                    <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert">
                     <strong><?= $errors['username'] ?></strong>
                 </span>
                 <?php endif; ?>
@@ -31,7 +31,7 @@
                     Parol <abbr title="Hökman doldurmaly">*</abbr>
                 </label>
                 <?php if (isset($errors['password'])) : ?>
-                    <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert">
                     <strong><?= $errors['password'] ?></strong>
                 </span>
                 <?php endif; ?>
