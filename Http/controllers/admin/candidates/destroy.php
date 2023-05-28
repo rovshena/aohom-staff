@@ -12,4 +12,4 @@ $db->query('delete from college where id = :id', [
 
 Session::flash('success', 'Ulanyjy üstünlikli pozuldy!');
 
-redirect('/admin/users');
+redirect('/admin/candidates');
