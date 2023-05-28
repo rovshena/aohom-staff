@@ -74,3 +74,8 @@ function auth()
 {
     return Session::get('user');
 }
+
+function isAdmin()
+{
+    return auth()['is_admin'] ?? false;
+}

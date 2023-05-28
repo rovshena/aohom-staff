@@ -15,7 +15,7 @@
             </button>
             <div id="dropdown-aside" class="dropdown-aside collapse">
                 <div class="pb-3">
-                    <a class="dropdown-item" href="/admin/change-password" >
+                    <a class="dropdown-item" href="/admin/change-password">
                         <span class="dropdown-icon fas fa-key fa-fw"></span>Parol çalyşmak
                     </a>
                     <a class="dropdown-item" href="javascript:void(0);"
@@ -34,14 +34,14 @@
                             <span class="menu-text">Baş sahypa</span>
                         </a>
                     </li>
-                    <!--                    @can('administrator')-->
-                    <!--                    <li class="menu-item {{ Route::is('admin.users*') ? 'has-active' : '' }}">-->
-                    <!--                        <a href="{{ route('admin.users.index') }}" class="menu-link">-->
-                    <!--                            <span class="menu-icon fas fa-user-friends"></span>-->
-                    <!--                            <span class="menu-text">{{ __('Ulanyjylar') }}</span>-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <!--                    @endcan-->
+                    <?php if (isAdmin()) : ?>
+                        <li class="menu-item <?= urlIs('/admin/users') ? 'has-active' : '' ?>">
+                            <a href="/admin/users" class="menu-link">
+                                <span class="menu-icon fas fa-user-friends"></span>
+                                <span class="menu-text">Ulanyjylar</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <li class="menu-item">
                         <a href="javascript:void(0);"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

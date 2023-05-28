@@ -9,3 +9,6 @@ $router->delete('/session', 'session/destroy.php')->only('auth');
 $router->get('/admin', 'admin/index.php')->only('auth');
 $router->get('/admin/change-password', 'admin/change-password/show.php')->only('auth');
 $router->put('/admin/change-password', 'admin/change-password/update.php')->only('auth');
+
+$router->get('/admin/users', 'admin/users/index.php')->only('admin');
+$router->delete('/admin/user', 'admin/users/destroy.php')->only('admin');

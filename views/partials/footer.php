@@ -29,6 +29,28 @@
     </script>
 <?php endif; ?>
 
+<?php if (auth() && isAdminPage()) : ?>
+    <script>
+        $('body').on('click', '.delete-item', function () {
+            const $form = $(this).next('form.delete-form')
+            swal.fire({
+                title: "Pozmak isleýärsiňizmi?",
+                text: "Saýlan maglumatyňyzy hakykatdan hem pozmak isleýärsiňizmi?",
+                type: "question",
+                showCancelButton: true,
+                confirmButtonText: "Hawa",
+                cancelButtonText: "Ýok",
+                onOpen: () => Swal.getCancelButton().focus()
+            }).then((result) => {
+                if (result.value) {
+                    $form.submit()
+                    $('.preloader').show()
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
+
 <script src="<?= asset('assets/js/layout.js') ?>"></script>
 <!-- End Page Level JS -->
 
